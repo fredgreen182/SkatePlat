@@ -19,10 +19,12 @@ func _physics_process(delta):
 	if Input.is_action_pressed("jump"):
 		jump()
 	if Input.is_action_pressed("ui_left"):
-		drag_multiplier -= 0.1
+		if(drag_multiplier > 0.9):
+			drag_multiplier -= 0.01
 		skate("left")
 	if Input.is_action_pressed("ui_right"):
-		drag_multiplier -= 0.1
+		if(drag_multiplier > 0.9):
+			drag_multiplier -= 0.01
 		skate("right")
 	if Input.is_action_pressed("ui_down"):
 		if drag_multiplier <=5:
@@ -34,6 +36,7 @@ func _physics_process(delta):
 	if is_on_floor():
 		motion.x = lerp(motion.x, 0, GROUND_DRAG * drag_multiplier)
 	motion = move_and_slide(motion, UP)
+	print(get_slide_collision(0))
 
 func jump():
 	if is_on_floor():
