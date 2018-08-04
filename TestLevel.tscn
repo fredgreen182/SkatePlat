@@ -210,7 +210,7 @@ __meta__ = {
 [node name="TestFloor6" type="KinematicBody2D" parent="Floor" index="4"]
 
 editor/display_folded = true
-position = Vector2( 6112.12, 938.958 )
+position = Vector2( 5844.02, 884.161 )
 scale = Vector2( 35.4502, 1 )
 input_pickable = false
 collision_layer = 1
@@ -226,6 +226,86 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/TestFloor6" index="1"]
+
+shape = SubResource( 3 )
+one_way_collision = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TestFloor7" type="KinematicBody2D" parent="Floor" index="5"]
+
+editor/display_folded = true
+position = Vector2( 7251.6, 1090.33 )
+scale = Vector2( 35.4502, 1 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+_sections_unfolded = [ "Transform" ]
+
+[node name="icon" type="Sprite" parent="Floor/TestFloor7" index="0"]
+
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/TestFloor7" index="1"]
+
+shape = SubResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TestFloor8" type="KinematicBody2D" parent="Floor" index="6"]
+
+editor/display_folded = true
+position = Vector2( 9384.3, 1090.33 )
+scale = Vector2( 35.4502, 1 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+_sections_unfolded = [ "Transform" ]
+
+[node name="icon" type="Sprite" parent="Floor/TestFloor8" index="0"]
+
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/TestFloor8" index="1"]
+
+shape = SubResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TestFloor9" type="KinematicBody2D" parent="Floor" index="7"]
+
+editor/display_folded = true
+position = Vector2( 11028.4, 947.157 )
+rotation = -0.261799
+scale = Vector2( 35.4502, 1 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="icon" type="Sprite" parent="Floor/TestFloor9" index="0"]
+
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/TestFloor9" index="1"]
 
 shape = SubResource( 3 )
 __meta__ = {

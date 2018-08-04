@@ -3,7 +3,7 @@ extends KinematicBody2D
 #Constants
 const UP = Vector2(0,-1)
 const GRAVITY = 20
-const JUMP_HEIGHT = -600
+const JUMP_HEIGHT = -700
 const GROUND_DRAG = 0.02
 const MAX_SPEED = 5000
 const ACCELERATION = 250
@@ -19,11 +19,11 @@ func _physics_process(delta):
 	if Input.is_action_pressed("jump"):
 		jump()
 	if Input.is_action_pressed("ui_left"):
-		if(drag_multiplier > 0.9):
+		if(drag_multiplier > 0.8):
 			drag_multiplier -= 0.01
 		skate("left")
 	if Input.is_action_pressed("ui_right"):
-		if(drag_multiplier > 0.9):
+		if(drag_multiplier > 0.8):
 			drag_multiplier -= 0.01
 		skate("right")
 	if Input.is_action_pressed("ui_down"):
@@ -36,7 +36,6 @@ func _physics_process(delta):
 	if is_on_floor():
 		motion.x = lerp(motion.x, 0, GROUND_DRAG * drag_multiplier)
 	motion = move_and_slide(motion, UP)
-	print(get_slide_collision(0))
 
 func jump():
 	if is_on_floor():
