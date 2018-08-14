@@ -13,6 +13,7 @@ func _process(delta):
 
 func get_time(delta):
 	stopwatch += delta
+	stopwatch = stepify(stopwatch, 0.01)
 	return get_minutes(stopwatch) + ":" + get_seconds(stopwatch) + "." + get_milliseconds(stopwatch)
 
 func get_minutes(time):
@@ -34,7 +35,14 @@ func get_seconds(time):
 	return seconds
 	
 func get_milliseconds(time):
-	milliseconds = fmod(stopwatch, 60)
-	milliseconds = stepify(milliseconds, 0.01)
-	milliseconds = str(milliseconds).right(2)
+	milliseconds = fmod(time, 1)
+	if(milliseconds==0):
+		milliseconds = "00"
+	elif(str(milliseconds).length()<4):
+		milliseconds = str(milliseconds)
+		milliseconds = milliseconds.right(1) + "0"
+	else:
+		milliseconds = str(milliseconds)
+		milliseconds = milliseconds.right(2)
+	print(milliseconds)
 	return milliseconds
