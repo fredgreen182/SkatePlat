@@ -13,6 +13,7 @@ func _process(delta):
 	clear()
 	if(is_running):
 		add_text(get_time(delta))
+		is_paused = false
 	elif(is_paused):
 		add_text(get_time(0))
 	else:
@@ -21,6 +22,9 @@ func _process(delta):
 		
 	if(Input.is_action_just_pressed("ui_up")):
 		is_running = !is_running
+	if(Input.is_action_just_pressed("ui_cancel")):
+		is_running = !is_running
+		is_paused = !is_paused
 
 
 
