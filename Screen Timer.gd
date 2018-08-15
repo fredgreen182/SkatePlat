@@ -6,7 +6,7 @@ var seconds = 0
 var milliseconds = 0
 var is_running = false
 var is_paused = false
-
+onready var start_point = get_node("Start Flag")
 
 
 func _process(delta):
@@ -17,7 +17,7 @@ func _process(delta):
 		add_text(get_time(0))
 	else:
 		add_text("00:00.00")
-	connect("level_started", self, "start_timer")
+	start_point.connect("level_started", self, "start_timer")
 	if(Input.is_action_just_pressed("ui_up")):
 		start_timer()
 	if(Input.is_action_just_pressed("ui_cancel")):

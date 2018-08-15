@@ -10,8 +10,6 @@
 
 [node name="Level" parent="." index="1" instance=ExtResource( 2 )]
 
-editor/display_folded = true
-
 [node name="GUI" parent="." index="2" instance=ExtResource( 3 )]
 
 
