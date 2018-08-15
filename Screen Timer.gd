@@ -13,20 +13,30 @@ func _process(delta):
 	clear()
 	if(is_running):
 		add_text(get_time(delta))
-		is_paused = false
 	elif(is_paused):
 		add_text(get_time(0))
 	else:
-		stopwatch = 0
 		add_text("00:00.00")
-		
+	connect("level_started", self, "start_timer")
 	if(Input.is_action_just_pressed("ui_up")):
-		is_running = !is_running
+		start_timer()
 	if(Input.is_action_just_pressed("ui_cancel")):
-		is_running = !is_running
-		is_paused = !is_paused
+		pause_timer()
+	if(Input.is_action_just_pressed("ui_page_down")):
+		stop_timer()
 
+func pause_timer():
+	is_running = false
+	is_paused = true
 
+func start_timer():
+	is_running = true
+	is_paused = false
+	
+func stop_timer():
+	is_running = false
+	is_paused = false
+	stopwatch = 0
 
 func get_time(delta):
 	stopwatch += delta

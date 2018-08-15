@@ -49,3 +49,7 @@ func skate(dir):
 			motion.x = max(motion.x - ACCELERATION, -MAX_SPEED)
 		elif dir == "right":
 			motion.x = min(motion.x + ACCELERATION, MAX_SPEED)
+
+func _on_Area2D_body_entered(body):
+	print(body)
+	

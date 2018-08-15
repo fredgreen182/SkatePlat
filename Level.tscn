@@ -1,11 +1,17 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://Start Flag.gd" type="Script" id=2]
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 31.94, 32.2089 )
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 28.5334, 108.266 )
 
 [node name="Level" type="Node2D"]
 
@@ -31,7 +37,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TestFloor" index="1"]
 
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -57,7 +63,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TestFloor2" index="1"]
 
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -83,7 +89,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TestFloor3" index="1"]
 
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -110,7 +116,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TestFloor5" index="1"]
 
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -135,7 +141,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TestFloor6" index="1"]
 
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 one_way_collision = true
 __meta__ = {
 "_edit_lock_": true
@@ -162,7 +168,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TestFloor7" index="1"]
 
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -188,7 +194,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TestFloor8" index="1"]
 
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -215,9 +221,52 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TestFloor9" index="1"]
 
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="Start Flag" type="Area2D" parent="." index="8"]
+
+editor/display_folded = true
+position = Vector2( -165.192, 4.30736 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Start Flag" index="0"]
+
+shape = SubResource( 2 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="End Flag" type="Area2D" parent="." index="9"]
+
+editor/display_folded = true
+position = Vector2( 12232.3, 446.181 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="End Flag" index="0"]
+
+shape = SubResource( 2 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[connection signal="body_entered" from="Start Flag" to="Start Flag" method="_on_Start_Flag_body_entered"]
 
 
