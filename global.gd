@@ -5,6 +5,9 @@ var minutes = 0
 var seconds = 0
 var milliseconds = 0
 
+func _ready():
+
+
 func reset_timer():
 	stopwatch = 0
 

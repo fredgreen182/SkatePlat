@@ -3,7 +3,6 @@ extends RichTextLabel
 var is_running = false
 var is_paused = false
 
-
 func _process(delta):
 	clear()
 	if(is_running):
@@ -31,3 +30,12 @@ func stop_timer():
 	is_running = false
 	is_paused = false
 	global.reset_timer()
+
+func _on_Start_Flag_body_entered(body):
+	if(body.get_name() == "Player"):
+		start_timer()
+
+
+func _on_End_Flag_body_entered(body):
+	if(body.get_name() == "Player"):
+		pause_timer()
